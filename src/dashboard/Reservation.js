@@ -40,28 +40,33 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
                 </div>
                 <p className='card-text'>{reservation.mobile_number}</p>
                 <p className='card-text'>{reservation.reservation_time}</p>
-                <div className='groupCardBtns'>
-                    {reservation.status !== 'seated' ? 
-                        <Link
-                            to={`/reservations/${reservation.reservation_id}/seat`}
-                            className='seatBtn cardBtn'
+                
+                {reservation.status !== 'finished' ? 
+                
+                    <div className='groupCardBtns'>
+                        {reservation.status !== 'seated' ? 
+                            <Link
+                                to={`/reservations/${reservation.reservation_id}/seat`}
+                                className='seatBtn cardBtn'
+                            >
+                                Seat
+                            <span></span></Link> : ''}
+                        <Link 
+                            to={`/reservations/${reservation.reservation_id}/edit`} 
+                            className='editBtn cardBtn'
                         >
-                            Seat
-                        <span></span></Link> : ''}
-                    <Link 
-                        to={`/reservations/${reservation.reservation_id}/edit`} 
-                        className='editBtn cardBtn'
-                    >
-                        Edit
-                    <span></span></Link>
-                    <button
-                        className='cancelBtn cardBtn'
-                        data-reservation-id-cancel={reservation.reservation_id}
-                        onClick={handleCancel}
-                    >
-                        Cancel
-                    <span></span></button>
-                </div>
+                            Edit
+                        <span></span></Link>
+                        <button
+                            className='cancelBtn cardBtn'
+                            data-reservation-id-cancel={reservation.reservation_id}
+                            onClick={handleCancel}
+                        >
+                            Cancel
+                        <span></span></button>
+                    </div>
+                : ''}
+
             </div>
         </div>
     )
