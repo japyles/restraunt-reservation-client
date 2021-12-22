@@ -36,9 +36,7 @@ function Seating () {
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log('before: ', reservationSeatingError)
         setReservationSeatingError(null)
-        console.log('after: ', reservationSeatingError)
 
         updateTable(tableId, params.reservation_id)
             .then(() => history.push('/dashboard/'))
