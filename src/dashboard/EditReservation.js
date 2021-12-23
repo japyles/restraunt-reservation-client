@@ -12,7 +12,7 @@ function EditReservation() {
         mobile_number: '',
         reservation_date: '',
         reservation_time: '',
-        people: 1,
+        people: '',
     })
     const [reservationError, setReservationError] = useState(null)
 
